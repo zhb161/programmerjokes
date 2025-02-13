@@ -2,7 +2,7 @@
 setlocal enabledelayedexpansion
 
 :: 设置图片文件夹路径
-set folder_path=D:\document\project\programmer-jokes\images
+set folder_path=D:\document\project\programmerjokes\images
 
 :: 进入文件夹
 cd /d "%folder_path%"

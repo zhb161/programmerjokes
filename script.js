@@ -3,7 +3,7 @@
 // 获取随机图片
 function getRandomImage() {
     //随机生成1-36的数字
-    const randomIndex = Math.floor(Math.random() * 36) + 1
+    const randomIndex = Math.floor(Math.random() * 1027) + 1
     return `images/${randomIndex}.webp`;
 }
 
