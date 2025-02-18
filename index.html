@@ -1,55 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover hilarious programmer jokes and memes! A curated collection of coding humor, debugging laughs, and tech-related fun.">
-    <meta name="keywords" content="programmer jokes, coding memes, programming humor, developer jokes, tech humor">
-    <meta name="author" content="Programmer Jokes">
-    <meta property="og:title" content="Programmer Jokes - Daily Coding Humor">
-    <meta property="og:description" content="Discover hilarious programmer jokes and memes! A curated collection of coding humor.">
-    <meta property="og:type" content="website">
-    <meta name="robots" content="index, follow">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover hilarious programmer jokes and memes! A curated collection of coding humor, debugging laughs, and tech-related fun."
+    />
+    <meta
+      name="keywords"
+      content="programmer jokes, coding memes, programming humor, developer jokes, tech humor, software engineer memes, coding fun, programming memes, developer humor, IT jokes"
+    />
+    <meta name="author" content="Programmer Jokes" />
+    <meta property="og:title" content="Programmer Jokes - Daily Coding Humor" />
+    <meta
+      property="og:description"
+      content="Discover hilarious programmer jokes and memes! A curated collection of coding humor."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://your-domain.com" />
     <title>Programmer Jokes - Daily Coding Humor</title>
     <script src="https://cdn.tailwindcss.com"></script>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8989801221024899"
-     crossorigin="anonymous"></script>
-</head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XZN6VD6FF6"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8989801221024899"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-XZN6VD6FF6"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-  gtag('config', 'G-XZN6VD6FF6');
-</script>
-<body class="bg-gray-100 min-h-screen">
+    gtag("config", "G-XZN6VD6FF6");
+  </script>
+  <body class="bg-gray-100 min-h-screen">
+    <!-- 添加模态框 -->
+    <div
+      id="imageModal"
+      class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50"
+    >
+      <div class="relative max-w-4xl w-full mx-4">
+        <img
+          id="modalImage"
+          class="w-full h-auto rounded-lg"
+          src=""
+          alt="Full size image"
+        />
+        <button
+          onclick="closeModal()"
+          class="absolute top-4 right-4 text-white hover:text-gray-300"
+        >
+          <svg
+            class="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 原有内容 -->
     <div class="container mx-auto px-4 py-8">
-        <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Programmer Jokes</h1>
-        
-        <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
-            <div class="aspect-w-16 aspect-h-9 mb-6">
-                <img id="jokeImage" class="w-full h-auto rounded-lg" alt="Random Programmer Joke" src="">
-            </div>
-            
-            <button id="changeButton" 
-                    class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
-                Next Joke
-            </button>
+      <div class="flex justify-end mb-4">
+        <div class="inline-flex rounded-md shadow-sm" role="group">
+          <button
+            onclick="setLanguage('en')"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
+          >
+            English
+          </button>
+          <button
+            onclick="setLanguage('zh')"
+            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
+          >
+            中文
+          </button>
+        </div>
+      </div>
+      <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">
+        Programmer Jokes
+      </h1>
+
+      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+        <div class="aspect-w-16 aspect-h-9 mb-6">
+          <img
+            id="jokeImage"
+            class="w-full h-auto rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
+            alt="Random Programmer Joke"
+            src=""
+            onclick="openModal(this.src)"
+          />
         </div>
 
-        <div class="max-w-2xl mx-auto mt-8 text-gray-600">
-            <h2 class="text-2xl font-semibold mb-4">About</h2>
-            <p class="mb-4">
-                Welcome to Programmer Jokes! We've curated a collection of the funniest programming-related memes to brighten up your coding sessions.
-            </p>
-            <p>
-                From debugging nightmares to code review humor, our collection covers all aspects of a developer's life. Take a break, have a laugh, and remember - even the best programmers need a good laugh sometimes!
-            </p>
+        <div class="flex gap-4 mb-4">
+          <button
+            id="changeButton"
+            class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+          >
+            Next Joke
+          </button>
+          <button
+            id="favoriteButton"
+            class="w-12 h-12 flex items-center justify-center bg-white border-2 border-gray-300 hover:border-red-500 text-gray-500 hover:text-red-500 rounded-lg transition duration-300"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+              />
+            </svg>
+          </button>
         </div>
+      </div>
+
+      <!-- 添加收藏列表区域 -->
+      <div
+        id="favoritesSection"
+        class="max-w-2xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-6"
+      >
+        <h2 class="text-2xl font-semibold mb-4">我的收藏</h2>
+        <div
+          id="favoritesList"
+          class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4"
+        >
+          <!-- 收藏的图片将在这里显示 -->
+        </div>
+
+        <!-- 添加分页控制 -->
+        <div class="flex justify-between items-center mt-4">
+          <span id="pageInfo" class="text-gray-600"></span>
+          <div class="flex gap-2">
+            <button
+              id="prevPage"
+              class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
+            >
+              上一页
+            </button>
+            <button
+              id="nextPage"
+              class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
+            >
+              下一页
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-2xl mx-auto mt-8 text-gray-600">
+        <h2 class="text-2xl font-semibold mb-4">About</h2>
+        <p class="mb-4">
+          Welcome to Programmer Jokes! We've curated a collection of the
+          funniest programming-related memes to brighten up your coding
+          sessions.
+        </p>
+        <p>
+          From debugging nightmares to code review humor, our collection covers
+          all aspects of a developer's life. Take a break, have a laugh, and
+          remember - even the best programmers need a good laugh sometimes!
+        </p>
+      </div>
     </div>
     <script src="script.js"></script>
-</body>
-</html> 
+    <!-- 在其他脚本之前添加 i18n.js -->
+    <script src="js/i18n.js"></script>
+  </body>
+</html>
