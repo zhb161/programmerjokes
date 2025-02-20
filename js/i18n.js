@@ -5,9 +5,9 @@ const translations = {
     myFavorites: "我的收藏",
     about: "关于",
     aboutContent1:
-      "欢迎来到程序员笑话！我们精心策划了最有趣的编程相关梗图，让您的编码时光更加愉快。",
+      "欢迎来到程序员笑话！这里收录了1000+精选编程梗图，涵盖程序员日常工作中的每一个欢乐瞬间。",
     aboutContent2:
-      "从调试噩梦到代码审查的趣事，我们的内容涵盖了开发者生活的方方面面。休息一下，开怀一笑吧！毕竟，最优秀的程序员也需要放松时刻！",
+      "无论是和Bug斗智斗勇，还是被Git合并折磨；是加班时刻的咖啡续命，还是代码审查的灵魂拷问 —— 在这里，你都能找到共鸣。因为幽默，是程序员必备的第二技能！",
     prevPage: "上一页",
     nextPage: "下一页",
     pageInfo: "第 ${current} 页，共 ${total} 页",
@@ -20,9 +20,9 @@ const translations = {
     myFavorites: "My Favorites",
     about: "About",
     aboutContent1:
-      "Welcome to Programmer Jokes! We've curated a collection of the funniest programming-related memes to brighten up your coding sessions.",
+      "Welcome to Programmer Jokes! Dive into our treasure trove of 1000+ handpicked programming memes that perfectly capture the essence of developer life.",
     aboutContent2:
-      "From debugging nightmares to code review humor, our collection covers all aspects of a developer's life. Take a break, have a laugh, and remember - even the best programmers need a good laugh sometimes!",
+      "Whether you're battling with merge conflicts, celebrating successful deployments, or questioning your life choices during debugging sessions - we've got a meme for every coding moment. Because sometimes, laughter is the best debugging tool!",
     prevPage: "Previous",
     nextPage: "Next",
     pageInfo: "Page ${current} of ${total}",
