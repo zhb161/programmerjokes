@@ -32,11 +32,16 @@ function saveFavorites(favorites) {
 function updateFavoriteButton() {
   const favorites = getFavorites();
   const favoriteButton = document.getElementById("favoriteButton");
-  if (favorites.includes(currentImageIndex)) {
-    favoriteButton.classList.add("text-red-500", "border-red-500");
-  } else {
-    favoriteButton.classList.remove("text-red-500", "border-red-500");
-  }
+  const isFavorite = favorites.includes(currentImageIndex);
+  favoriteButton.classList.toggle("text-red-500", isFavorite);
+  favoriteButton.classList.toggle("border-red-500", isFavorite);
+  favoriteButton.classList.toggle("text-gray-500", !isFavorite);
+  favoriteButton.classList.toggle("border-gray-500", !isFavorite);
+  favoriteButton.style.transition = "transform 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out";
+  favoriteButton.style.transform = "scale(1.2) rotate(10deg)";
+  setTimeout(() => {
+    favoriteButton.style.transform = "scale(1) rotate(0deg)";
+  }, 300);
 }
 
 // 更新收藏列表显示
@@ -165,7 +170,7 @@ function toggleFavorite() {
   const index = favorites.indexOf(currentImageIndex);
 
   if (index === -1) {
-    favorites.push(currentImageIndex);
+    favorites.unshift(currentImageIndex);
   } else {
     favorites.splice(index, 1);
   }

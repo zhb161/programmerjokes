@@ -118,7 +118,7 @@
           </button>
           <button
             id="favoriteButton"
-            class="w-12 h-12 flex items-center justify-center bg-white border-2 border-gray-300 hover:border-red-500 text-gray-500 hover:text-red-500 rounded-lg transition duration-300"
+            class="w-12 h-12 flex items-center justify-center bg-white border-2 border-gray-300 text-gray-500 rounded-lg transition duration-300"
           >
             <svg
               class="w-6 h-6"
@@ -169,19 +169,44 @@
           </div>
         </div>
       </div>
-      <div class="max-w-2xl mx-auto mt-8 text-gray-600">
-        <h2 class="text-2xl font-semibold mb-4">About</h2>
-        <p class="mb-4">
-          Welcome to Programmer Jokes! We've curated a collection of the
-          funniest programming-related memes to brighten up your coding
-          sessions.
-        </p>
-        <p>
-          From debugging nightmares to code review humor, our collection covers
-          all aspects of a developer's life. Take a break, have a laugh, and
-          remember - even the best programmers need a good laugh sometimes!
-        </p>
+      <!-- Hero Section -->
+      <div
+        class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-16 mb-12 rounded-lg"
+      >
+        <div class="max-w-4xl mx-auto text-center px-4">
+          <h2 class="text-4xl font-bold mb-4" id="heroTitle"></h2>
+          <p class="text-xl" id="heroSubtitle"></p>
+        </div>
       </div>
+
+      <!-- Features Section -->
+      <div class="max-w-6xl mx-auto px-4 mb-16">
+        <h2 class="text-3xl font-bold text-center mb-8" id="featuresTitle"></h2>
+        <div class="grid md:grid-cols-3 gap-8" id="featuresList"></div>
+      </div>
+
+      <!-- FAQ Section -->
+      <div class="bg-gray-50 py-16 mb-16">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-center mb-8" id="faqTitle"></h2>
+          <div class="space-y-6" id="faqList"></div>
+        </div>
+      </div>
+
+      <!-- About Section -->
+      <div class="max-w-2xl mx-auto mt-8 text-gray-600">
+        <h2 class="text-2xl font-semibold mb-4" id="aboutTitle"></h2>
+        <p class="mb-4" id="aboutContent1"></p>
+        <p id="aboutContent2"></p>
+      </div>
+
+      <!-- Footer -->
+      <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+          <p class="mb-2" id="footerCopyright"></p>
+          <p id="footerContact"></p>
+        </div>
+      </footer>
     </div>
     <script src="script.js"></script>
     <!-- 在其他脚本之前添加 i18n.js -->

@@ -13,6 +13,40 @@ const translations = {
     pageInfo: "第 ${current} 页，共 ${total} 页",
     imageAlt: "点击查看大图",
     modalAlt: "大图预览",
+    hero: {
+      title: "让编程充满欢乐",
+      subtitle: "1000+ 精选编程梗图，让你在代码中找到快乐"
+    },
+    features: {
+      title: "特色功能",
+      list: [
+        {
+          title: "海量梗图",
+          description: "1000+ 精选编程梗图，持续更新"
+        },
+        {
+          title: "收藏功能",
+          description: "收藏喜欢的梗图，随时回顾"
+        }
+      ]
+    },
+    faq: {
+      title: "常见问题",
+      list: [
+        {
+          question: "内容会定期更新吗？",
+          answer: "是的，我们会定期添加新的优质内容。"
+        },
+        {
+          question: "如何提交自己的梗图？",
+          answer: "您可以通过页脚的邮箱地址向我们投稿。"
+        }
+      ]
+    },
+    footer: {
+      copyright: "© 2024 Ice Zhang. 保留所有权利。",
+      contact: "联系方式：zhanghaobing913@gmail.com"
+    }
   },
   en: {
     title: "Programmer Jokes",
@@ -28,6 +62,40 @@ const translations = {
     pageInfo: "Page ${current} of ${total}",
     imageAlt: "Click to view full size",
     modalAlt: "Full size preview",
+    hero: {
+      title: "Making Programming Fun",
+      subtitle: "1000+ Curated Programming Memes to Brighten Your Code"
+    },
+    features: {
+      title: "Features",
+      list: [
+        {
+          title: "Massive Collection",
+          description: "1000+ curated programming memes, regularly updated"
+        },
+        {
+          title: "Favorites System",
+          description: "Save your favorite memes for later"
+        }
+      ]
+    },
+    faq: {
+      title: "FAQ",
+      list: [
+        {
+          question: "Do you update content regularly?",
+          answer: "Yes, we regularly add new quality content."
+        },
+        {
+          question: "Can I submit my own memes?",
+          answer: "You can submit your memes through the email address provided in the footer."
+        }
+      ]
+    },
+    footer: {
+      copyright: "© 2024 Ice Zhang. All rights reserved.",
+      contact: "Contact: zhanghaobing913@gmail.com"
+    }
   },
 };
 
@@ -40,8 +108,16 @@ function setLanguage(lang) {
 }
 
 function getText(key, params = {}) {
-  const text = translations[currentLang][key];
-  return text.replace(/\${(\w+)}/g, (_, key) => params[key] || "");
+  const keys = key.split('.');
+  let text = translations[currentLang];
+  for (const k of keys) {
+    text = text[k];
+    if (text === undefined) {
+      console.warn(`Translation key not found: ${key}`);
+      return key; // 返回键名作为后备文本
+    }
+  }
+  return text.replace ? text.replace(/\${(\w+)}/g, (_, key) => params[key] || "") : text;
 }
 
 function updatePageContent() {
@@ -51,20 +127,44 @@ function updatePageContent() {
 
   // 更新按钮文本
   document.getElementById("changeButton").textContent = getText("nextJoke");
-  document.querySelector("#favoritesSection h2").textContent =
-    getText("myFavorites");
+  document.querySelector("#favoritesSection h2").textContent = getText("myFavorites");
+
+  // 更新 Hero 部分
+  document.getElementById("heroTitle").textContent = getText("hero.title");
+  document.getElementById("heroSubtitle").textContent = getText("hero.subtitle");
+
+  // 更新 Features 部分
+  document.getElementById("featuresTitle").textContent = getText("features.title");
+  const featuresList = document.getElementById("featuresList");
+  featuresList.innerHTML = translations[currentLang].features.list
+    .map(feature => `
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="text-xl font-semibold mb-2">${feature.title}</h3>
+        <p class="text-gray-600">${feature.description}</p>
+      </div>
+    `)
+    .join("");
+
+  // 更新 FAQ 部分
+  document.getElementById("faqTitle").textContent = getText("faq.title");
+  const faqList = document.getElementById("faqList");
+  faqList.innerHTML = translations[currentLang].faq.list
+    .map(faq => `
+      <div class="p-6 bg-white rounded-lg shadow-lg">
+        <h3 class="text-lg font-semibold mb-2">${faq.question}</h3>
+        <p class="text-gray-600">${faq.answer}</p>
+      </div>
+    `)
+    .join("");
 
   // 更新关于部分
-  const aboutTitle = document.querySelector(
-    ".max-w-2xl.mx-auto.mt-8.text-gray-600 h2"
-  );
-  aboutTitle.textContent = getText("about");
+  document.getElementById("aboutTitle").textContent = getText("about");
+  document.getElementById("aboutContent1").textContent = getText("aboutContent1");
+  document.getElementById("aboutContent2").textContent = getText("aboutContent2");
 
-  const aboutParagraphs = document.querySelectorAll(
-    ".max-w-2xl.mx-auto.mt-8.text-gray-600 p"
-  );
-  aboutParagraphs[0].textContent = getText("aboutContent1");
-  aboutParagraphs[1].textContent = getText("aboutContent2");
+  // 更新 Footer 部分
+  document.getElementById("footerCopyright").textContent = getText("footer.copyright");
+  document.getElementById("footerContact").textContent = getText("footer.contact");
 
   // 更新分页按钮
   document.getElementById("prevPage").textContent = getText("prevPage");
