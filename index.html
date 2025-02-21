@@ -1,215 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="1000+ hilarious programmer memes and jokes! From debugging nightmares to code reviews, Git conflicts to coffee addiction - relive every programmer's daily life through laughter."
-    />
-    <meta
-      name="keywords"
-      content="programmer jokes, coding memes, programming humor, developer jokes, tech humor, software engineer memes, coding fun, programming memes, developer humor, IT jokes, debug memes, git memes"
-    />
-    <meta name="author" content="Programmer Jokes" />
-    <meta property="og:title" content="Programmer Jokes - Daily Coding Humor" />
-    <meta
-      property="og:description"
-      content="1000+ hilarious programmer memes! Experience the fun side of coding through our curated collection of tech humor."
-    />
-    <meta property="og:type" content="website" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://your-domain.com" />
-    <title>Programmer Jokes - Daily Coding Humor</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8989801221024899"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <!-- Google tag (gtag.js) -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-XZN6VD6FF6"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
 
-    gtag("config", "G-XZN6VD6FF6");
-  </script>
-  <body class="bg-gray-100 min-h-screen">
-    <!-- 添加模态框 -->
-    <div
-      id="imageModal"
-      class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50"
-    >
-      <div class="relative max-w-4xl w-full mx-4">
-        <img
-          id="modalImage"
-          class="w-full h-auto rounded-lg"
-          src=""
-          alt="Full size image"
-        />
-        <button
-          onclick="closeModal()"
-          class="absolute top-4 right-4 text-white hover:text-gray-300"
-        >
-          <svg
-            class="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            ></path>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="1000+ hilarious programmer memes and jokes! From debugging nightmares to code reviews, Git conflicts to coffee addiction - relive every programmer's daily life through laughter." />
+  <meta name="keywords"
+    content="programmer jokes, coding memes, programming humor, developer jokes, tech humor, software engineer memes, coding fun, programming memes, developer humor, IT jokes, debug memes, git memes" />
+  <meta name="author" content="Programmer Jokes" />
+  <meta property="og:title" content="Programmer Jokes - Daily Coding Humor" />
+  <meta property="og:description"
+    content="1000+ hilarious programmer memes! Experience the fun side of coding through our curated collection of tech humor." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://your-domain.com" />
+  <title>Programmer Jokes - Daily Coding Humor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8989801221024899"
+    crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+  <!-- 添加模态框 -->
+  <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-75 hidden flex items-center justify-center z-50">
+    <div class="relative max-w-4xl w-full mx-4">
+      <img id="modalImage" class="w-full h-auto rounded-lg" src="" alt="Full size image" />
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-white hover:text-gray-300">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 原有内容 -->
+  <div class="container mx-auto px-4 py-8">
+    <div class="flex justify-end mb-4">
+      <div class="inline-flex rounded-md shadow-sm" role="group">
+        <button onclick="setLanguage('en')"
+          class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          English
+        </button>
+        <button onclick="setLanguage('zh')"
+          class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700">
+          中文
+        </button>
+      </div>
+    </div>
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">
+      Programmer Jokes
+    </h1>
+
+    <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div class="aspect-w-16 aspect-h-9 mb-6">
+        <img id="jokeImage" class="w-full h-auto rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
+          alt="Random Programmer Joke" src="" onclick="openModal(this.src)" />
+      </div>
+
+      <div class="flex gap-4 mb-4">
+        <button id="changeButton"
+          class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300">
+          Next Joke
+        </button>
+        <button id="favoriteButton"
+          class="w-12 h-12 flex items-center justify-center bg-white border-2 border-gray-300 text-gray-500 rounded-lg transition duration-300">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
           </svg>
         </button>
       </div>
     </div>
 
-    <!-- 原有内容 -->
-    <div class="container mx-auto px-4 py-8">
-      <div class="flex justify-end mb-4">
-        <div class="inline-flex rounded-md shadow-sm" role="group">
-          <button
-            onclick="setLanguage('en')"
-            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
-          >
-            English
-          </button>
-          <button
-            onclick="setLanguage('zh')"
-            class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700"
-          >
-            中文
-          </button>
-        </div>
+    <!-- 添加收藏列表区域 -->
+    <div id="favoritesSection" class="max-w-2xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-6">
+      <h2 class="text-2xl font-semibold mb-4">我的收藏</h2>
+      <div id="favoritesList" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4">
+        <!-- 收藏的图片将在这里显示 -->
       </div>
-      <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">
-        Programmer Jokes
-      </h1>
 
-      <div class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <div class="aspect-w-16 aspect-h-9 mb-6">
-          <img
-            id="jokeImage"
-            class="w-full h-auto rounded-lg cursor-pointer transition-transform hover:scale-[1.02]"
-            alt="Random Programmer Joke"
-            src=""
-            onclick="openModal(this.src)"
-          />
-        </div>
-
-        <div class="flex gap-4 mb-4">
-          <button
-            id="changeButton"
-            class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
-          >
-            Next Joke
+      <!-- 添加分页控制 -->
+      <div class="flex justify-between items-center mt-4">
+        <span id="pageInfo" class="text-gray-600"></span>
+        <div class="flex gap-2">
+          <button id="prevPage"
+            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50">
+            上一页
           </button>
-          <button
-            id="favoriteButton"
-            class="w-12 h-12 flex items-center justify-center bg-white border-2 border-gray-300 text-gray-500 rounded-lg transition duration-300"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
+          <button id="nextPage"
+            class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50">
+            下一页
           </button>
         </div>
       </div>
-
-      <!-- 添加收藏列表区域 -->
-      <div
-        id="favoritesSection"
-        class="max-w-2xl mx-auto mt-8 bg-white rounded-lg shadow-lg p-6"
-      >
-        <h2 class="text-2xl font-semibold mb-4">我的收藏</h2>
-        <div
-          id="favoritesList"
-          class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-4"
-        >
-          <!-- 收藏的图片将在这里显示 -->
-        </div>
-
-        <!-- 添加分页控制 -->
-        <div class="flex justify-between items-center mt-4">
-          <span id="pageInfo" class="text-gray-600"></span>
-          <div class="flex gap-2">
-            <button
-              id="prevPage"
-              class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
-            >
-              上一页
-            </button>
-            <button
-              id="nextPage"
-              class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 disabled:opacity-50"
-            >
-              下一页
-            </button>
-          </div>
-        </div>
-      </div>
-      <!-- Hero Section -->
-      <div
-        class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24 my-16 rounded-lg shadow-lg"
-      >
-        <div class="max-w-4xl mx-auto text-center px-4">
-          <h2 class="text-4xl font-bold mb-6" id="heroTitle"></h2>
-          <p class="text-xl opacity-90" id="heroSubtitle"></p>
-        </div>
-      </div>
-
-      <!-- Features Section -->
-      <div class="max-w-6xl mx-auto px-4 mb-16">
-        <h2 class="text-3xl font-bold text-center mb-8" id="featuresTitle"></h2>
-        <div class="grid md:grid-cols-3 gap-8" id="featuresList"></div>
-      </div>
-
-      <!-- FAQ Section -->
-      <div class="bg-gray-50 py-16 mb-16">
-        <div class="max-w-4xl mx-auto px-4">
-          <h2 class="text-3xl font-bold text-center mb-8" id="faqTitle"></h2>
-          <div class="space-y-6" id="faqList"></div>
-        </div>
-      </div>
-
-      <!-- About Section -->
-      <div class="max-w-2xl mx-auto mt-8 text-gray-600">
-        <h2 class="text-2xl font-semibold mb-4" id="aboutTitle"></h2>
-        <p class="mb-4" id="aboutContent1"></p>
-        <p id="aboutContent2"></p>
-      </div>
-
-      <!-- Footer -->
-      <footer class="bg-gray-800 text-white py-8 mt-16">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-          <p class="mb-2" id="footerCopyright"></p>
-          <p id="footerContact"></p>
-        </div>
-      </footer>
     </div>
-    <script src="script.js"></script>
-    <!-- 在其他脚本之前添加 i18n.js -->
-    <script src="js/i18n.js"></script>
-  </body>
+    <!-- Hero Section -->
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white py-24 my-16 rounded-lg shadow-lg">
+      <div class="max-w-4xl mx-auto text-center px-4">
+        <h2 class="text-4xl font-bold mb-6" id="heroTitle"></h2>
+        <p class="text-xl opacity-90" id="heroSubtitle"></p>
+      </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="max-w-6xl mx-auto px-4 mb-16">
+      <h2 class="text-3xl font-bold text-center mb-8" id="featuresTitle"></h2>
+      <div class="grid md:grid-cols-3 gap-8" id="featuresList"></div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="bg-gray-50 py-16 mb-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8" id="faqTitle"></h2>
+        <div class="space-y-6" id="faqList"></div>
+      </div>
+    </div>
+
+    <!-- About Section -->
+    <div class="max-w-2xl mx-auto mt-8 text-gray-600">
+      <h2 class="text-2xl font-semibold mb-4" id="aboutTitle"></h2>
+      <p class="mb-4" id="aboutContent1"></p>
+      <p id="aboutContent2"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <p class="mb-2" id="footerCopyright"></p>
+        <p id="footerContact"></p>
+      </div>
+    </footer>
+  </div>
+  <script src="script.js"></script>
+  <!-- 在其他脚本之前添加 i18n.js -->
+  <script src="js/i18n.js"></script>
+  <div style="display: none;">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-SRGE5VKBRF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'G-SRGE5VKBRF');
+    </script>
+  </div>
+</body>
+
 </html>
